@@ -221,6 +221,11 @@ type Mock struct {
 	mutex sync.Mutex
 }
 
+// Reset resets all mock configurations as if it was being created again.
+func (m *Mock) Reset() {
+	*m = Mock{}
+}
+
 // String provides a %v format string for Mock.
 // Note: this is used implicitly by Arguments.Diff if a Mock is passed.
 // It exists because go's default %v formatting traverses the struct
